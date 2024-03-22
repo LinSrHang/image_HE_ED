@@ -14,7 +14,7 @@ from cv2 import THRESH_BINARY
 from cv2 import bitwise_and
 from cv2 import cvtColor
 from cv2 import COLOR_GRAY2BGR
-from cv2 import add
+import cv2
 from cv2 import imread
 from numpy import zeros
 
@@ -43,7 +43,7 @@ def add(img1, img2):
     img1bg = bitwise_and(roi, roi, mask=mask_inv)
     img2 = cvtColor(img2, COLOR_GRAY2BGR)
     img2 = bitwise_and(img2, (0, 255, 0))
-    dst = add(img1bg, img2)
+    dst = cv2.add(img1bg, img2)
     return dst
 
 img = zeros((10, 10, 3),)
